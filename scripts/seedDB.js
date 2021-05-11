@@ -13,6 +13,7 @@ mongoose.connect(
         price: 500,
         name: "Gold Chain",
         quantity: 5,
+        
     }
   ];
 
