@@ -19,7 +19,7 @@ mongoose.connect(
 
   db.Item 
     .remove({})
-    .them(() => db.Item.collection.insertMany(itemSeed))
+    .then(() => db.Item.collection.insertMany(itemSeed))
     .then(data => {
         console.log(data.result.n + "records inserted!");
         process.exit(0);
