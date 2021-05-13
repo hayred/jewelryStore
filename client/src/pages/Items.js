@@ -25,6 +25,7 @@ function Items() {
       .catch(err => console.log(err));
   };
 
+  console.log(items);
 
     return (
       <Container fluid>
@@ -66,12 +67,12 @@ function Items() {
             <Jumbotron>
               <h1>Books On My List</h1>
             </Jumbotron>
-            {items.length ? (
+            {items ? (
               <List>
                 {items.map(item => {
                   return (
-                    <ListItem key={item._id}>
-                      <a href={"/items/" + item._id}>
+                    <ListItem key={item.name}>
+                      <a href={"/items/" + item.key}>
                         <strong>
                           {item.name} by {item.description}
                         </strong>
