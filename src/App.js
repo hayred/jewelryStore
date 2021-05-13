@@ -1,6 +1,5 @@
-import React from "react";
-import Items from "./pages/Items";
-import Nav from "./components/Nav";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
