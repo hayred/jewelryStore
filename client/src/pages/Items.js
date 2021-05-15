@@ -25,14 +25,13 @@ function Items() {
       .catch(err => console.log(err));
   };
 
-  console.log(items);
 
     return (
       <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Add Items</h1>
+              <h1>Add Product</h1>
             </Jumbotron>
             <form>
               <Input
@@ -65,14 +64,14 @@ function Items() {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Products Available</h1>
             </Jumbotron>
-            {items ? (
+            {items.length ? (
               <List>
                 {items.map(item => {
                   return (
-                    <ListItem key={item.name}>
-                      <a href={"/items/" + item.key}>
+                    <ListItem key={item._id}>
+                      <a href={"/items/" + item._id}>
                         <strong>
                           {item.name} by {item.description}
                         </strong>
