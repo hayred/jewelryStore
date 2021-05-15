@@ -5,6 +5,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import { set } from "mongoose";
 
 function Items() {
   // Setting our component's initial state
@@ -18,12 +19,31 @@ function Items() {
 
   // Loads all books and sets them to books
   function loadItems() {
-    API.getItems()
-      .then(res => 
-        setItems(res.data)
-      )
-      .catch(err => console.log(err));
+    // API.getItems()
+    //   .then(res => 
+    //     setItems(res.data)
+    //   )
+    //   .catch(err => console.log(err));
   };
+  
+  function handleInputChange (event) {
+    const {name, value} = event.target;
+    setFormObject({...formObject, [name]: value})
+  }
+
+  function formSubmit(event){
+    event.preventDefault();
+    API.saveItem({
+      name: formObject.name,
+      price: formObject.price,
+      description: formObject.description,
+      quantity: formObject.quantity
+    }).then(result => {
+      loadItems();
+    }).catch(err => {
+      console.log(err)
+    });
+  }
 
 
     return (
@@ -33,30 +53,31 @@ function Items() {
             <Jumbotron>
               <h1>Add Product</h1>
             </Jumbotron>
-            <form>
+            <form >
+              <label for='name of product'/>
               <Input
-                onChange={() => {}}
+                onChange= {handleInputChange}
                 name="name"
                 placeholder="Name (required)"
               />
               <Input
-                onChange={() => {}}
+                onChange={handleInputChange}
                 name="description"
                 placeholder="Description (required)"
               />
               <Input
-                onChange={() => {}}
+                onChange={handleInputChange}
                 name="price"
                 placeholder="Price (Optional)"
               />
                 <Input
-                onChange={() => {}}
+                onChange={handleInputChange}
                 name="quantity"
                 placeholder="Quantity (Optional)"
               />
               <FormBtn
-               // disabled={!(formObject.name && formObject.description)}   
-                onClick={() => {}}
+               disabled={!(formObject.name && formObject.description)}   
+                onClick={formSubmit}
               >
                 Save Item
               </FormBtn>
@@ -66,9 +87,9 @@ function Items() {
             <Jumbotron>
               <h1>Products Available</h1>
             </Jumbotron>
-            {items.length ? (
+            {items ? (
               <List>
-                {items.map(item => {
+                {items?.map(item => {
                   return (
                     <ListItem key={item._id}>
                       <a href={"/items/" + item._id}>
