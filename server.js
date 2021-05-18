@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 
 app.use(routes)
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hayred:pizza@cluster0.pksit.mongodb.net/jewelryStore?retryWrites=true&w=majority");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jewelryStore");
 
 
 
