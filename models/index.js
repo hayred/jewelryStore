@@ -1,4 +1,4 @@
 module.exports = {
-    User: require("./users"),
+    // User: require("./users"),
     Item: require("./item")
 }
