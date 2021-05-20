@@ -5,8 +5,8 @@ const itemSchema = new Schema({
 name: {type: String, required: true}, 
 desciption: { type: String, required: true},
  price: {type: Number, required: true},
- quantity: {type: Number, required: true},
- id: {type: Number, required: true}
+ quantity: {type: Number, required: false}
+// id: {type: Number, required: false}
 
 });
 
