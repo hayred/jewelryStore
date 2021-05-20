@@ -69,13 +69,13 @@ function Items() {
               />
               <Input
                 onChange={handleInputChange}
-                name="description"
-                placeholder="Description"
+                name="price"
+                placeholder="Price"
               />
               <Input
                 onChange={handleInputChange}
-                name="price"
-                placeholder="Price"
+                name="description"
+                placeholder="Description"
               />
               <Input
                 onChange={handleInputChange}
@@ -99,7 +99,7 @@ function Items() {
                   <ListItem key={item._id}>
                     <Link to={"/items/" + item._id}>
                       <strong>
-                        {item.name} by {item.description}
+                        {item.name} {item.price}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteItem(item._id)} />
