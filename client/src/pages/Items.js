@@ -10,8 +10,7 @@ import { Input, FormBtn } from "../components/Form";
 function Items() {
   // Setting our component's initial state
   const [items, setItems] = useState([])
-  const [formObject, setFormObject] = useState({})
-
+  const [formObject, setFormObject] = useState({});
   // Load all books and store them with setBooks
   useEffect(() => {
     loadItems()
@@ -24,7 +23,7 @@ function Items() {
         setItems(res.data)
       )
       .catch(err => console.log(err));
-  };
+    };
 
   // Deletes a book from the database with a given id, then reloads books from the db
   function deleteItem(id) {
