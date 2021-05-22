@@ -6,6 +6,9 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Admin Inventory Control
       </a>
+      <a className="navbar-brand" href="/addItem">
+        Add New Items
+      </a>
     </nav>
   );
 }

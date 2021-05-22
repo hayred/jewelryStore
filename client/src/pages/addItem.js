@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
-function Items() {
+function addItems() {
   // Setting our component's initial state
   const [items, setItems] = useState([])
   const [formObject, setFormObject] = useState({});
@@ -49,7 +49,8 @@ function Items() {
         price: formObject.price,
         quantity: formObject.quantity
       })
-        .then(res => loadItems())
+        .then(res => 
+          formObject.name = "Name required" )
         .catch(err => console.log(err));
     }
   };
@@ -57,26 +58,37 @@ function Items() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6 sm-12">
+          <Col size="md-6">
             <Jumbotron>
-              <h1>Items Available</h1>
+              <h1>Add Product</h1>
             </Jumbotron>
-            {items.length ? (
-              <List>
-                {items.map(item => (
-                  <ListItem key={item._id}>
-                    <Link to={"/items/" + item._id}>
-                      <strong>
-                        {item.name} ${item.price}.00
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => deleteItem(item._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+            <form>
+              <Input
+                onChange={handleInputChange}
+                name="name"
+                placeholder="Name (required)"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="price"
+                placeholder="Price"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="description"
+                placeholder="Description"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="quantity"
+                placeholder="Quantity"
+              />
+              <FormBtn
+                onClick={handleFormSubmit}
+              >
+                Save Item
+              </FormBtn>
+            </form>
           </Col>
         </Row>
       </Container>
@@ -84,4 +96,4 @@ function Items() {
   }
 
 
-export default Items;
+export default addItems;
