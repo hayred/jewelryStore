@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
+import { Input, FormBtn, Select1 } from "../components/Form";
 
 function AddItems() {
   // Setting our component's initial state
@@ -40,8 +40,13 @@ function AddItems() {
   // Then reload books from the database
   function handleFormSubmit(event) {
     event.preventDefault();
+<<<<<<< HEAD
     if (formObject.name && formObject.description) {
+=======
+    if (formObject.name && formObject.description && formObject.category ) {
+>>>>>>> 21922cfbd025d53a33f50909ab85fd2701999e2b
       API.saveItem({
+        category: formObject.category,
         name: formObject.name,
         description: formObject.description,
         price: formObject.price,
@@ -50,6 +55,59 @@ function AddItems() {
         .then((res) => (formObject.name = "Name required"))
         .catch((err) => console.log(err));
     }
+<<<<<<< HEAD
+=======
+  };
+
+    return (
+      <Container fluid>
+        <Row>
+          <Col size="md-6">
+            <Jumbotron>
+              <h1>Add Product</h1>
+            </Jumbotron>
+            <form>
+              <Select1  onChange={handleInputChange}
+              name="category">
+                <option></option>
+                <option value="rings">Rings</option>
+                <option value="necklaces">Necklaces</option>
+                <option value="earrings">Earrings</option>
+                <option value="bracelets">Bracelets</option>
+                <option value="watches">Watches</option>
+                
+              </Select1>
+              <Input
+                onChange={handleInputChange}
+                name="name"
+                placeholder="Name (required)"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="price"
+                placeholder="Price"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="description"
+                placeholder="Description"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="quantity"
+                placeholder="Quantity"
+              />
+              <FormBtn
+                onClick={handleFormSubmit}
+              >
+                Save Item
+              </FormBtn>
+            </form>
+          </Col>
+        </Row>
+      </Container>
+    );
+>>>>>>> 21922cfbd025d53a33f50909ab85fd2701999e2b
   }
 
   return (
