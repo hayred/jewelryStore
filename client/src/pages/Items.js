@@ -44,6 +44,7 @@ function Items() {
     event.preventDefault();
     if (formObject.name && formObject.description ) {
       API.saveItem({
+        category: formObject.category,
         name: formObject.name,
         description: formObject.description,
         price: formObject.price,
