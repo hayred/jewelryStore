@@ -2,18 +2,18 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Items from "./pages/Items";
 import Nav from "./components/Nav";
-import addItem from "./pages/addItem"
+import AddItems from "./pages/addItem";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav/>
+        <Nav />
         <Switch>
           <Route exact path={["/", "/items"]}>
             <Items />
           </Route>
-          <Route exact path="/addItem" component={addItem} />
+          <Route exact path="/addItem" component={AddItems} />
 
           {/* <Route exact path="/items/:id">
             <Detail />
@@ -21,7 +21,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-
   );
 }
 
