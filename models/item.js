@@ -6,7 +6,8 @@ category: {type: String, required: true},
 name: {type: String, required: true}, 
 description: { type: String, required: true},
  price: {type: String, required: true},
- quantity: {type: Number, required: false}
+ quantity: {type: Number, required: false},
+ photo: { type: String, required: false}
 
 // id: {type: Number, required: false}
 

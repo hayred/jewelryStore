@@ -17,6 +17,13 @@ export function Select1(props) {
     </div>
   );
 }
+export function Upload1(props) {
+  return (
+    <div className="form-group">
+      <file className="form-control-file" {...props} />
+    </div>
+  );
+}
 
 export function TextArea(props) {
   return (

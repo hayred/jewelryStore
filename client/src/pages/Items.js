@@ -5,7 +5,6 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
 
 function Items() {
   // Setting our component's initial state
@@ -33,27 +32,10 @@ function Items() {
   }
 
   // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
+
 
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.name && formObject.description ) {
-      API.saveItem({
-        category: formObject.category,
-        name: formObject.name,
-        description: formObject.description,
-        price: formObject.price,
-        quantity: formObject.quantity
-      })
-        .then(res => loadItems())
-        .catch(err => console.log(err));
-    }
-  };
 
     return (
       <Container fluid>
