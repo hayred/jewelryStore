@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3020/",
+  "engines": {
+    "node": "14.15.4"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^16.6.3",
